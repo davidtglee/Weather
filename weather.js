@@ -42,9 +42,8 @@ let handleWeatherResponse = function(response) {
     document.getElementById("forecast"+(i+1)+"-text").innerHTML=response.daily.data[i+1].summary;
     document.getElementById("forecast"+(i+1)+"-temperature").innerHTML=Math.round(response.daily.data[i+1].temperatureHigh) + " | " + Math.round(response.daily.data[i+1].temperatureLow) +" Fº";
     document.getElementById("forecast"+(i+1)+"-icon").innerHTML=icon(response.daily.data[i+1]);
-
-
   }
+      $(".forecast").fadeIn(3000);
 
   // *** your code ends here - no, really.
 };
@@ -52,8 +51,7 @@ let handleWeatherResponse = function(response) {
 // leave this alone; does the event handling and ajax
 $(function() {
   $("#get-the-weather").on("click", function(event) {
-       $(".current").fadeIn(3000);
-        $(".forecast").fadeIn(3000);
+
     event.preventDefault();
     let locationName = $("#location-name").val();
     geocodeAndGetWeather(locationName);
